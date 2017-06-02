@@ -1,0 +1,1 @@
+rootdir = "/Users/gustavoarango/Dropbox/Data/machine_learning/NLP/sentiment/"
