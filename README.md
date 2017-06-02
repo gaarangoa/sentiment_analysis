@@ -1,3 +1,8 @@
 # Sentiment analysis of spanish sentences
 This repository is built to predict the sentiment of sentences written in spanish. It has been trained with open source datasets (wiki and twitter). 
 
+## Requirements
+    - Tensorflow
+    - python 2.7
+    - tflearn
+    - flask
