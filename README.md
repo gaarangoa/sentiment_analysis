@@ -43,9 +43,16 @@ To deploy into the server, first, create a new environment and install tensorflo
 
 1. Add script alias to apache configuration file
 
-    add WSGIScriptAlias /sentiment /var/www/dev//start.wsgi to the apache configuration file:
+    add: WSGIScriptAlias /sentiment /var/www/NLP/sentiment/start.py to the apache configuration file:
         nano /etc/apache2/sites-enabled/000-default.conf
 
-2. 
-    
+2. Modify config.py and put the path where the repository was downloaded.
+
+3. restart apache by typing: sudo service apache2 restart
+
+
+## logs
+
+To check if the REST API is correctly deployed, check the logs of apache under: 
+    sudo nano /var/log/apache2/error.log
 
