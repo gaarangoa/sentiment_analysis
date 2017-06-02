@@ -41,3 +41,11 @@ To deploy into the server, first, create a new environment and install tensorflo
     
 ## Deployment
 
+1. Add script alias to apache configuration file
+
+    add WSGIScriptAlias /sentiment /var/www/dev//start.wsgi to the apache configuration file:
+        nano /etc/apache2/sites-enabled/000-default.conf
+
+2. 
+    
+
