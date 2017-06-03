@@ -48,8 +48,11 @@ To deploy into the server, first, create a new environment and install tensorflo
     WSGIScriptAlias /sentiment /var/www/NLP/sentiment/start.py
     
     <Directory /var/www/NLP/sentiment>
+
             WSGIApplicationGroup %{GLOBAL}
+            
             Allow from all
+    
     <\/Directory>
     
 
