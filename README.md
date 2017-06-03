@@ -53,19 +53,23 @@ To deploy into the server, first, create a new environment and install tensorflo
     
 
 2. Modify config.py and put the path where the repository was downloaded.
-    import sys
+
+        import sys
         sys.path.insert(0, '/var/www/NLP/sentiment/')
 
 3. Add the virtualenv environment:
+
         python_home = '/home/gustavo/tensorflow.1.0.1/'
         activate_this = python_home + '/bin/activate_this.py'
         execfile(activate_this, dict(__file__=activate_this))
 
 4. restart apache by typing: 
+
         sudo service apache2 restart
 
 ## logs
 
 To check if the REST API is correctly deployed, check the logs of apache under: 
+
         sudo nano /var/log/apache2/error.log
 
