@@ -41,15 +41,28 @@ To deploy into the server, first, create a new environment and install tensorflo
     
 ## Deployment
 
-1. Add script alias to apache configuration file
+1. Apache2 configuration
 
-    add: WSGIScriptAlias /sentiment /var/www/NLP/sentiment/start.py to the apache configuration file:
-        nano /etc/apache2/sites-enabled/000-default.conf
+    add to /etc/apache2/sites-enabled/000-default.conf: 
+    
+    WSGIScriptAlias /sentiment /var/www/NLP/sentiment/start.py
+    <Directory /var/www/NLP/sentiment>
+            WSGIApplicationGroup %{GLOBAL}
+            Allow from all
+    <\/Directory>
+
 
 2. Modify config.py and put the path where the repository was downloaded.
+    import sys
+    sys.path.insert(0, '/var/www/NLP/sentiment/')
 
-3. restart apache by typing: sudo service apache2 restart
+3. Add the virtualenv environment:
+    python_home = '/home/gustavo/tensorflow.1.0.1/'
+    activate_this = python_home + '/bin/activate_this.py'
+    execfile(activate_this, dict(__file__=activate_this))
 
+4. restart apache by typing: 
+    sudo service apache2 restart
 
 ## logs
 
