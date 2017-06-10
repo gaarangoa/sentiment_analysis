@@ -18,7 +18,7 @@ def test(sentence):
 
 @app.route('/batchPredict/', methods=['POST', 'GET'])
 def batchPredict():
-    return 'okay'
+    # return 'okay'
     try:
         sentiment = {'positive':0, 'negative':0}
         data = request.get_json()['data'];
