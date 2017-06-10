@@ -22,7 +22,7 @@ def batchPredict():
     # return 'okay'
     try:
         sentiment = {'positive':0, 'negative':0}
-        data = request.get_json(force = True);
+        data = request.get_json();
         print data
         return jsonify(data)
 
