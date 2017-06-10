@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from src.sentimentClass import sentiment
+import json
 
 app = Flask(__name__)
 
@@ -21,7 +22,7 @@ def batchPredict():
     # return 'okay'
     try:
         sentiment = {'positive':0, 'negative':0}
-        data = request.get_json();
+        data = request.get_json(force = True);
         print data
         return jsonify(data)
 
