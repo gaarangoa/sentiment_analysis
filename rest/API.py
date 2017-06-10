@@ -18,7 +18,7 @@ def test(sentence):
             return str(inst);
 
 
-@app.route('/batchPredict', methods=['GET','POST'])
+@app.route('/batchPredict', methods=['POST'])
 def batchPredict():
     # return 'okay'
     try:
