@@ -18,6 +18,7 @@ def test(sentence):
     try:
         for i in data:
             prediction = model.predict(i)
+            print prediction
             sentiment['positive']+=prediction['positive']
             sentiment['negative']+=prediction['negative']
         # sentiment['positive']=sentiment['positive']/len(data)
