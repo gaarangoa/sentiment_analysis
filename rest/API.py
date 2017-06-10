@@ -17,12 +17,12 @@ def test(sentence):
         except Exception as inst:
             return str(inst);
 
-@app.route('/batchPredict/', methods=['POST', 'GET'])
+@app.route('/batchPredict', methods=['POST'])
 def batchPredict():
     # return 'okay'
     try:
         sentiment = {'positive':0, 'negative':0}
-        data = request.data;
+        data = request.json;
         print data
         return jsonify(data)
 
