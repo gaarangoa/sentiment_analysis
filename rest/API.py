@@ -16,7 +16,7 @@ def test(sentence):
         except Exception as inst:
             return str(inst);
 
-@app.route('/batchPredict/', methods=['POST'])
+@app.route('/batchPredict/', methods=['POST', 'GET'])
 def batchPredict():
     return 'okay'
     try:
