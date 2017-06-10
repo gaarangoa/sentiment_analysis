@@ -18,10 +18,10 @@ def test(sentence):
     try:
         for i in data:
             prediction = model.predict(i)
-            sentiment['positive']+=i['positive']
-            sentiment['negative']+=i['negative']
-        sentiment['positive']=sentiment['positive']/len(data)
-        sentiment['negative']=sentiment['negative']/len(data)
+            sentiment['positive']+=prediction['positive']
+            sentiment['negative']+=prediction['negative']
+        # sentiment['positive']=sentiment['positive']/len(data)
+        # sentiment['negative']=sentiment['negative']/len(data)
         return jsonify(sentiment = sentiment)
     except Exception as inst:
         return str(inst);
