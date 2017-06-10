@@ -18,14 +18,12 @@ def test(sentence):
             return str(inst);
 
 
-@app.route('/batchPredict', methods=['POST'])
+@app.route('/batchPredict', methods=['GET','POST'])
 def batchPredict():
-    # return 'okay'
     try:
         sentiment = {'positive':0, 'negative':0}
-        data = request.json;
+        data = request.get_json();
         return jsonify(data="abde", data2="here")
-
         # for i in data['documents']:
         #     prediction = model.predict(i)
         #     sentiment['positive']+=i['positive']
