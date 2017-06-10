@@ -27,6 +27,7 @@ def batchPredict():
         print "form: ", request.form
         print "values: ", request.values
         print "data: ", request.data
+        print "json: ", request.json
         return jsonify({})
         # sentiment = {'positive':0, 'negative':0}
         # print "Here is the thing"
