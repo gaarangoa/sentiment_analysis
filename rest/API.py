@@ -14,6 +14,7 @@ def index():
 @app.route('/predict/<sentence>', methods=['GET','POST'])
 def test(sentence):
     data = json.loads(base64.b64decode(sentence))
+    print data
     try:
         for i in data:
             prediction = model.predict(i)
