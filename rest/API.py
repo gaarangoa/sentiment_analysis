@@ -23,13 +23,13 @@ def batchPredict():
         sentiment = {'positive':0, 'negative':0}
         data = request.get_json();
         return jsonify(data)
-        
-        for i in data['documents']:
-            prediction = model.predict(i)
-            sentiment['positive']+=i['positive']
-            sentiment['negative']+=i['negative']
-        sentiment['positive']=sentiment['positive']/len(data)
-        sentiment['negative']=sentiment['negative']/len(data)
-        return jsonify(sentiment = sentiment)
+
+        # for i in data['documents']:
+        #     prediction = model.predict(i)
+        #     sentiment['positive']+=i['positive']
+        #     sentiment['negative']+=i['negative']
+        # sentiment['positive']=sentiment['positive']/len(data)
+        # sentiment['negative']=sentiment['negative']/len(data)
+        # return jsonify(sentiment = sentiment)
     except Exception as inst:
         return str(inst)
