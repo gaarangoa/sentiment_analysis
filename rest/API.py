@@ -14,7 +14,7 @@ def index():
 @app.route('/predict/<sentence>', methods=['GET','POST'])
 def test(sentence):
     data = json.loads(base64.b64decode(sentence))
-    print data
+    sentiment = {'positive':0, 'negative':0}
     try:
         for i in data:
             prediction = model.predict(i)
@@ -23,7 +23,7 @@ def test(sentence):
             sentiment['negative']+=prediction['negative']
         # sentiment['positive']=sentiment['positive']/len(data)
         # sentiment['negative']=sentiment['negative']/len(data)
-        return json.dumps(sentiment)
+        return jsonify(data=sentiment)
     except Exception as inst:
         return str(inst);
 
