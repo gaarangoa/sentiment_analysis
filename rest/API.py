@@ -23,10 +23,10 @@ def test(sentence):
 def batchPredict():
     try:
         print "test"
-        print request.headers
-        print request.form
-        print request.values
-        print request.data
+        print "headers: ", request.headers
+        print "form: ", request.form
+        print "values: ", request.values
+        print "data: ", request.data
         return jsonify({})
         # sentiment = {'positive':0, 'negative':0}
         # print "Here is the thing"
