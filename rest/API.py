@@ -23,7 +23,7 @@ def test(sentence):
             sentiment['negative']+=prediction['negative']
         # sentiment['positive']=sentiment['positive']/len(data)
         # sentiment['negative']=sentiment['negative']/len(data)
-        return jsonify(sentiment = sentiment)
+        return json.dumps(sentiment)
     except Exception as inst:
         return str(inst);
 
