@@ -15,3 +15,17 @@ def test(sentence):
             return jsonify(sentiment=model.predict(sentence));
         except Exception as inst:
             return str(inst);
+
+@app.route('/batchPredict/', methods=['POST'])
+def batchPredict():
+    try:
+        sentiment = {'positive':0, 'negative':0}
+        data = request.get_json();
+        for i in data:
+            prediction = model.predict(i)
+            sentiment['positive']+=i['positive']
+            sentiment['negative']+=i['negative']
+
+        return jsonify(sentiment = sentiment)
+    except Exception as inst:
+        return str(inst)
