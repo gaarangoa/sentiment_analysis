@@ -7,6 +7,8 @@ execfile(activate_this, dict(__file__=activate_this))
 
 import sys
 sys.path.insert(0, '/var/www/NLP/sentiment/')
+# sys.path.insert(0, '/Users/gustavoarango/Dropbox/Data/machine_learning/NLP/sentiment/')
+
 
 from rest.API import app as application
 
