@@ -13,17 +13,24 @@ def index():
 
 @app.route('/predict/<sentence>', methods=['GET','POST'])
 def test(sentence):
-    data = json.loads(base64.b64decode(sentence))
-    sentiment = {'positive':0, 'negative':0}
     try:
-        for i in data:
-            prediction = model.predict(i)
-            print prediction
-            sentiment['positive']+=prediction['positive']
-            sentiment['negative']+=prediction['negative']
-        # sentiment['positive']=sentiment['positive']/len(data)
-        # sentiment['negative']=sentiment['negative']/len(data)
-        return jsonify(sentiment)
+        return jsonify(sentiment=model.predict(sentence));
     except Exception as inst:
         return str(inst);
 
+
+@app.route('/batchPredict', methods=['GET','POST'])
+def batchPredict():
+    try:
+        sentiment = {'positive':0, 'negative':0}
+        request.get_data();
+        return jsonify(data="abde", data2=request.data)
+        # for i in data['documents']:
+        #     prediction = model.predict(i)
+        #     sentiment['positive']+=i['positive']
+        #     sentiment['negative']+=i['negative']
+        # sentiment['positive']=sentiment['positive']/len(data)
+        # sentiment['negative']=sentiment['negative']/len(data)
+        # return jsonify(sentiment = sentiment)
+    except Exception as inst:
+        return str(inst)
