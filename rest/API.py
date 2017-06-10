@@ -34,4 +34,5 @@ def batchPredict():
         # sentiment['negative']=sentiment['negative']/len(data)
         # return jsonify(sentiment = sentiment)
     except Exception as inst:
-        return str(inst)
+        print 'error: '+str(inst)
+        return 'error: '+str(inst)
