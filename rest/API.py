@@ -22,8 +22,8 @@ def batchPredict():
     # return 'okay'
     try:
         sentiment = {'positive':0, 'negative':0}
-        data = request.data;
-        return jsonify(data=data[0])
+        data = request.json;
+        return jsonify(data="abde")
 
         # for i in data['documents']:
         #     prediction = model.predict(i)
