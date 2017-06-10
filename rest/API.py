@@ -22,11 +22,17 @@ def test(sentence):
 @app.route('/batchPredict', methods=['GET','POST'])
 def batchPredict():
     try:
-        sentiment = {'positive':0, 'negative':0}
-        print "Here is the thing"
-        # data=request.get_json(force=True);
-        print request.json
-        return jsonify(data=request.form, data2=request.json, data3=request.data)
+        print "test"
+        print request.headers
+        print request.form
+        print request.values
+        print request.data
+        return jsonify({})
+        # sentiment = {'positive':0, 'negative':0}
+        # print "Here is the thing"
+        # # data=request.get_json(force=True);
+        # print request.json
+        # return jsonify(data=request.form, data2=request.json, data3=request.data)
         # for i in data['documents']:
         #     prediction = model.predict(i)
         #     sentiment['positive']+=i['positive']
