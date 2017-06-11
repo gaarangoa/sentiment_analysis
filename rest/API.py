@@ -22,25 +22,18 @@ def test(sentence):
 @app.route('/batchPredict', methods=['GET','POST'])
 def batchPredict():
     try:
-        print "test"
-        print "headers: ", request.headers
-        print "form: ", request.form
-        print "values: ", request.values
-        print "data: ", request.get_data()
-        print "json: ", request.get_json()
-        return jsonify({"TODO":"TODO"})
-        # sentiment = {'positive':0, 'negative':0}
+        sentiment = {'positive':0, 'negative':0}
         # print "Here is the thing"
-        # # data=request.get_json(force=True);
+        data=request.get_json();
         # print request.json
         # return jsonify(data=request.form, data2=request.json, data3=request.data)
-        # for i in data['documents']:
-        #     prediction = model.predict(i)
-        #     sentiment['positive']+=i['positive']
-        #     sentiment['negative']+=i['negative']
-        # sentiment['positive']=sentiment['positive']/len(data)
-        # sentiment['negative']=sentiment['negative']/len(data)
-        # return jsonify(sentiment = sentiment)
+        for i in data:
+            prediction = model.predict(i)
+            sentiment['positive']+=i['positive']
+            sentiment['negative']+=i['negative']
+        sentiment['positive']=sentiment['positive']/len(data)
+        sentiment['negative']=sentiment['negative']/len(data)
+        return jsonify(sentiment = sentiment)
     except Exception as inst:
         print 'error: '+str(inst)
         return 'error: '+str(inst)
