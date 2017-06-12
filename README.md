@@ -45,11 +45,13 @@ To deploy into the server, first, create a new environment and install tensorflo
 
     add to /etc/apache2/sites-enabled/000-default.conf: 
     
+        WSGIDaemonProcess sentiment
         WSGIScriptAlias /sentiment /var/www/NLP/sentiment/start.py
         <Directory /var/www/NLP/sentiment>
+                WSGIProcessGroup sentiment
                 WSGIApplicationGroup %{GLOBAL}
                 Allow from all
-        <\/Directory>
+        </Directory>
     
 
 2. Modify config.py and put the path where the repository was downloaded.
